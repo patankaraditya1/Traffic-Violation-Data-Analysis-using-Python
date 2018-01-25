@@ -1,8 +1,5 @@
 # File:  RMAKHIJA_APATANKA_code.py
 
-#####################################
-# THIS IS ASSIGNMENT # 2........... #
-#####################################
 
 # This python script will read JSON data of traffic violations in Montgomery county directly from the source and
 # then plot various histograms and maps to visualise the data.
