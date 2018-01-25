@@ -1,0 +1,332 @@
+\documentclass[11pt,oneside]{article}	
+
+	% LOAD PACKAGES ==========================================================
+	\usepackage{titlesec}
+	\usepackage{graphicx}
+	\usepackage[utf8]{inputenc}
+	\usepackage[american]{babel}
+	\usepackage{amssymb}
+	\usepackage[intlimits]{amsmath}
+	\usepackage{array}
+	\usepackage{mdwlist}
+	\usepackage{subfig}		% Allows subfigs/subfloats
+	\usepackage{algorithmic}
+	\usepackage{lscape}
+	\usepackage{rotating}		% Allows \begin{sideways} \end{sideways} for vertical table headers.	
+	\usepackage{threeparttable}	% Allow footnotes in tables.	
+	\usepackage{multirow}		% Allow table cells to span multiple rows/cols.
+	\usepackage{hyperref}		% Allow \url{} and \href{url}{name}
+	\usepackage{verbatim}
+	\usepackage{enumerate}		% http://www.tex.ac.uk/cgi-bin/texfaq2html?label=enumerate
+	\usepackage{color}			% Allow colored fonts
+	\usepackage{setspace} 		% Allows \singlespacing, \onehalfspacing, \doublespacing (set below)
+	\usepackage{listings}
+	\usepackage{tikz}	
+	\usepackage{needspace}
+	% ========================================================================	
+
+	% DEFINE PAGE FORMATTING +++++++++++++++++++++++++++++++++++++++++++++++++
+		% Select Line Spacing:
+		\singlespacing
+		% \onehalfspacing		
+		% \doublespacing	
+	
+	% Margins:
+		\usepackage[letterpaper,left=1.0in,top=1.0in,right=1.0in,bottom=1.0in]{geometry}
+	% Section on new page
+		
+	% Page Style
+	  	\pagestyle{plain}	% Includes page number
+		% \pagestyle{empty}	% Completely blank
+    % ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	% MISC ITEMS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	% By default all math is set to inline mode. The \displaystyle command
+	% ensures that we don't get small fractions or summations with limits
+	% on the sides.
+	\everymath{\displaystyle}	
+	% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+	\setlength{\parskip}{\baselineskip}%
+	\setlength{\parindent}{0pt}%
+
+
+	\lstset{language=Python}          % Set your language (you can change the language for each code-block optionally)
+
+	\definecolor{mygreen}{rgb}{0,0.6,0}
+	\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+	\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+	\lstset{ %
+	  backgroundcolor=\color{gray!10!white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+	  basicstyle=\ttfamily,        % the size of the fonts that are used for the code
+	  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+	  breaklines=true,                 % sets automatic line breaking
+	  captionpos=t,                    % sets the caption-position to bottom
+	  commentstyle=\color{green!30!black},    % comment style
+	  deletekeywords={...},            % if you want to delete keywords from the given language
+	  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	  frame=single,	                   % adds a frame around the code
+	  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	  keywordstyle=\color{blue},       % keyword style
+	  language=Python,                 % the language of the code
+	  morekeywords={*,...},           % if you want to add more keywords to the set
+	  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+	  numbersep=5pt,                   % how far the line-numbers are from the code
+	  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+	  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	  showstringspaces=false,          % underline spaces within strings only
+	  showtabs=false,                  % show tabs within strings adding particular underscores
+	  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	  stringstyle=\color{mymauve},     % string literal style
+	  tabsize=4,	                   % sets default tabsize to 2 spaces
+	  title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+	  xleftmargin=35pt,
+	  xrightmargin=5pt, 
+	  aboveskip=0pt,
+	  belowskip=10pt
+	}
+
+
+
+
+
+
+% ---------------------------ENTER TITLE INFO HERE--------------------------
+\title{Traffic Violations in Montgomery County}
+\author{Ramandeep Singh Makhija and Adita Patankar}
+\date{28th March 2017}
+
+
+% ---------------------------DOCUMENT STARTS HERE---------------------------
+\begin{document}
+
+\maketitle
+
+
+\vspace{2cm}
+\section{Introduction}
+\newcommand{\sectionbreak}{\clearpage}
+{\color{black}
+The traffic violations dataset contains the information about the traffic violations from all electronic traffic violations issued in the county of Montgomery.The data contains information about where the violation happened, the type of car, demographics on the person receiving the violation, and some other interesting information.
+
+
+\begin{itemize}
+	 \item The data is obtained from the source "https://data.montgomerycountymd.gov/api/views/4mse-ku6q/rows.json"
+    	 \item The dataset is obtained in terms of a JSON file.
+    	 \item  A JSON file is short for JavaScript Object Notation and it is a way to store information in an organized manner and it is easy-to-access.
+	 \item It helps in understanding the data in a logical manner. JSON feeds can be loaded asynchronously in a much easier manner with the JSON files than XML/RSS files. 
+	 \item The data was first published on 18th September 2014.
+    	 \item The data is updated on the daily basis.
+\end{itemize}
+}
+
+\section{Python Code}
+
+{\color{black}
+Below is our python code.  
+}
+
+
+\begin{lstlisting}[frame=l, name=Traffic Violations, title={Code for visualization of Traffic violations in Montgomery County}] 
+
+# File:  RMAKHIJA_APATANKA_code.py
+#####################################
+# ......... ASSIGNMENT # 2......... #
+#####################################
+# This python script will read JSON data of traffic violations in Montgomery county directly from the source and then plot various histograms and maps to visualise the data.
+
+# To run:
+# python RMAKHIJA_APATANKA_code.py
+
+# Source(s):
+# The following url is used as a source for this code:
+# https://www.dataquest.io/blog/python-json-tutorial/
+
+# NOTE: Tabbing will create indented lines of code.
+
+# Following packages are imported
+import json
+import urllib2
+import pandas as pd
+import matplotlib.pyplot as plt
+import folium
+from folium import plugins
+
+#Follwing is the url for data
+url = "https://data.montgomerycountymd.gov/api/views/4mse-ku6q/rows.json"
+
+# this takes a python object and dumps it to a string which is a JSON
+# Extracting data from json file using json and urllib2
+json = json.load(urllib2.urlopen(url))
+
+# All columns from data
+columns = json['meta']['view']['columns']
+
+# Actual data which is neede from yhe json file
+mdata = json['data']
+
+# Column Names of the data
+column_names = [col["fieldName"] for col in columns]
+
+# Selecting the good columns from all the columns of data
+good_columns = [
+    "date_of_stop", "time_of_stop", "agency", "subagency","description","location", "latitude", "longitude",
+    "vehicle_type", "year", "make", "model", "color", "violation_type","race", "gender", "driver_state",
+    "driver_city", "dl_state","arrest_type"
+]
+
+# Creating useful data in a list
+data = []
+for row in mdata:
+    selected_row = []
+    for item in good_columns:
+        selected_row.append(row[(column_names.index(item))])
+    data.append(selected_row)
+
+# Creating a data frame of useful data using pandas
+stops = pd.DataFrame(data, columns=good_columns)
+
+# Converting longitudes and latitudes to float
+def parse_float(x):
+    try:
+        x = float(x)
+    except Exception:
+        x = 0
+    return x
+stops["longitude"] = stops["longitude"].apply(parse_float)
+stops["latitude"] = stops["latitude"].apply(parse_float)
+
+# Converting seperate columns of date and time to a single datetime float column
+import datetime
+def parse_full_date(row):
+    date = datetime.datetime.strptime(row["date_of_stop"], "%Y-%m-%dT%H:%M:%S")
+    time = row["time_of_stop"].split(":")
+    date = date.replace(hour=int(time[0]), minute = int(time[1]), second = int(time[2]))
+    return date
+stops["date"] = stops.apply(parse_full_date, axis=1)
+
+# Plotting histogram using matplotlib for number of traffic stops on a particular day and saving it as Figure 1
+plt.hist(stops["date"].dt.weekday, bins=6, color = "red", ec = "black")
+plt.xlabel("Weekdays: where 0: Monday & 6: Sunday")
+plt.ylabel("Frequency")
+plt.title("Histogram for Number of traffic stops on a particular day of a week")
+plt.savefig('Figure1.png')
+plt.show()
+# Output can be seen below in Figure 1
+
+# Plotting histogram using matplotlib for number of traffic stops on a particular time of day and saving it as Figure 2
+plt.hist(stops["date"].dt.hour, bins=24, color = "red", ec = "black")
+plt.xlabel("Time: where 0:12 a.m")
+plt.ylabel("Frequency")
+plt.title("Histogram for Number of traffic stops on a particular time of a day")
+plt.savefig('Figure2.png')
+plt.show()
+# Output can be seen below in Figure 2
+
+# Subsetting the data of last year
+last_year = stops[stops["date"] > datetime.datetime(year=2016, month=2, day=18)]
+
+# Subsetting the data of last years morning rush
+morning_rush = last_year[(last_year["date"].dt.weekday < 5) & (last_year["date"].dt.hour > 5) & (last_year["date"].dt.hour < 10)]
+
+# Mapping traffic stops on Montgomery county map using folium package
+stops_map = folium.Map(location=[39.0836, -77.1483], zoom_start=11)
+marker_cluster = folium.MarkerCluster().add_to(stops_map)
+for name, row in morning_rush.iloc[:1000].iterrows():
+    folium.Marker([row["latitude"], row["longitude"]], popup=row["description"]).add_to(marker_cluster)
+stops_map.save('stops.html')
+# Output can be seen down in Figure 3
+
+# Creting a heatmap using folium package
+stops_heatmap = folium.Map(location=[39.0836, -77.1483], zoom_start=11)
+stops_heatmap.add_child(plugins.HeatMap([[row["latitude"], row["longitude"]] for name, row in morning_rush.iloc[:1000].iterrows()]))
+stops_heatmap.save('heatmap.html')
+# Output can be seen down in Figure 4
+
+
+
+
+
+
+\end{lstlisting}
+
+
+
+\begin{figure}[htp]
+The output of the code is shown below:
+	\centering
+	\includegraphics[width=.8\textwidth,  scale = 0.3]{figure1.png}
+ 	\caption{{\color{black}Histogram for number of traffic stops on a particular day.}}
+  	\label{fig:sample}
+
+	\vspace{1cm}
+	\includegraphics[width=.8\textwidth, scale = 0.3]{figure2.png}
+ 	\caption{{\color{black}Histogram for number of traffic stops on a particular time of day.}}
+  	\label{fig:sample}
+\end{figure}
+
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=.85\textwidth,  scale = 0.5]{figure3.png}
+ 	\caption{{\color{black}Mapping of traffic stops on Montgomery county map.}}
+  	\label{fig:sample}
+
+	\vspace{2cm}
+	\includegraphics[width=.85\textwidth, scale = 0.5]{figure4.png}
+ 	\caption{{\color{black}Heat map of traffic violations in Montgomery county.}}
+  	\label{fig:sample}
+\end{figure}
+
+
+\clearpage
+\subsection{Explanation of the Code}
+{\color{black}
+Python has great JSON support, with the json library. We can both convert lists and dictionaries to JSON, and convert strings to lists and dictionaries. JSON data looks much like a dictionary would in Python, with keys and values stored.
+\begin{itemize}
+	\item First we read the json file using json package and urllib2 package and store it in json which is considered as a string.
+	\item Then we extract the actual data which we need from json and store it as mdata.
+    	\item  Now we select the columns we need from the data i.e. the useful columns we need and store them in a list called good\_columns.
+	\item Now we iterate through mdata and extract the data corresponding to good\_columns and store it in a list called data. 
+	\item Now that we have the data as a list of lists, and the column headers as a list, we can create a Pandas Dataframe to analyze the data.
+   	\item If you\'re unfamiliar with Pandas, it\'s a data analysis library that uses an efficient, tabular data structure called a Dataframe to represent your data. Pandas allows you to convert a list of lists into a Dataframe and specify the column names separately.
+    	\item The Pandas Dataframe created is stored as stops.
+   	\item To perform time and location based analysis we need to convert the longitude, latitude and date columns from string to float.
+  	\item The two seperate columns of time\_of\_stop and date\_of\_stop are converted into a single datetime column.
+    	\item By using matplotlib.pyplot library we made a plot showing which days result in the most traffic stops.
+    	\item We also made a plot showing teh most common traffict stop times in a particular day.
+    	\item Now that we\'ve converted the location and date columns, we can map out the traffic stops. But we will have to filter down the rows we use from stops first.
+    	\item Then we subset our data to past year.
+    	\item We further narrowed it down by selecting the rows taht occured during the rush hours i.e. morning period when everyone is going to work and stored it as morning\_rush.
+    	\item Now using the folium package we visulized the morning\_rush data by creating maps.
+    	\item In order to preserve performance we only visualized teh first 1000 rows of morning\_rush.
+    	\item We extended our analysis further by generating a heat map using folium package which shows the concentration of violation on the county map.
+    
+\end{itemize}
+}
+
+\section{Suggestions}
+{\color{black}
+In this code we learned how to use Python to go from a raw JSON data from a live source to fully functional maps using command line tools , Pandas, matplotlib, and folium.
+
+This data can be used further for following analysis:
+\begin{itemize}
+	\item Variation of type of stop with location.
+     	\item Correlation of income with number of stops.
+     	\item Correlation of population density with number of stops.
+     	\item Types of stops more common around midnight.
+
+\end{itemize}
+
+}
+
+
+\end{document}
+
+
+
+
+
